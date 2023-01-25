@@ -7,6 +7,11 @@ import { StationsComponent } from './list/stations.component';
 import { StationDetailsComponent } from './view/station-details.component';
 import { JourneyDetailsComponent } from './view/journey-details.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table'; 
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,13 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatSortModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
