@@ -2,13 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { JourneysComponent } from './list/journeys.component';
+import { StationsComponent } from './list/stations.component';
+import { StationDetailsComponent } from './view/station-details.component';
+import { JourneyDetailsComponent } from './view/journey-details.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    JourneysComponent,
+    StationsComponent,
+    StationDetailsComponent,
+    JourneyDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
