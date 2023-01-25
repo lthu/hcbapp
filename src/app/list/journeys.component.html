@@ -1,4 +1,4 @@
 <p>journeys works!</p>
 
-
-<app-journey-details [journeyDetails]="journeyDetails"></app-journey-details>
+<li *ngFor="let item of journeyList; index as i">({{item.departure_time}} - {{item.return_time}}) | {{item.departure_station_name}} -> {{item.return_station_name}} Duration: {{item.duration/60}} Distance: {{item.distance}}</li>
+<app-journey-details></app-journey-details>
