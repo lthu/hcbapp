@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Journey } from './model/journey';
+import { Journey, JourneyDetails } from './model/journey';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,6 +18,9 @@ export class DataService {
 
   getJourneys(): Observable<Journey[]> {
     return this.http.get<Journey[]>(this.journeyApiURL)
+  }
+  getJourneyById(id: number): Observable<JourneyDetails[]> {
+    return this.http.get<JourneyDetails[]>(this.journeyApiURL + '/' + id)
   }
  
 }

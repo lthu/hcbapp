@@ -16,9 +16,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class JourneysComponent implements OnInit {
   displayedColumns: string[] = ['id', 'departure_time', 'return_time', 'departure_station_name', 'return_station_name'];
   dataSource = new MatTableDataSource<Journey>();
-  journeyDetails: Journey = {id: 0, departure_time: "", return_time: "", departure_station_name: "", return_station_name: "", distance: 0, duration: 0 };
 
-  
   constructor(private ds: DataService, public dialog: MatDialog) {}
   
   @ViewChild(MatSort) sort!: MatSort;
@@ -28,15 +26,12 @@ export class JourneysComponent implements OnInit {
   
   }
 
-  // Pass journey details to child component: journey-details
+  // Pass single journey id to child component which then fetched journey details from API.
   showJourneyDetails(i: any) {
-    // this.journeyDetails = i;
     this.dialog.open(JourneyDetailsComponent, {
-      data: {
-        id: i.id,
-        return_station: i.return_station_name,
-        departure_station: i.departure_station_name,
-      }
+      height: '50%',
+      width: '50%',
+      data: { id: i.id }
     });
   }
 
