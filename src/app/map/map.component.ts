@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Map, Control, DomUtil, ZoomAnimEvent , Layer, MapOptions, tileLayer, latLng } from 'leaflet';
+import { icon, Marker } from 'leaflet';
 import * as L from 'leaflet';
 
 @Component({
@@ -15,8 +16,10 @@ import * as L from 'leaflet';
 export class MapComponent implements OnInit, OnDestroy {
   @Output() map$: EventEmitter<Map> = new EventEmitter;
   @Output() zoom$: EventEmitter<number> = new EventEmitter;
-  @Input() x_coordinate! : number;
-  @Input() y_coordinate! : number;
+  @Input() departureX! : number;
+  @Input() departureY! : number;
+  @Input() returnX! : number;
+  @Input() returnY! : number;
   @Input() options: MapOptions= {
                       layers:[tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                         opacity: 1,
@@ -32,20 +35,49 @@ export class MapComponent implements OnInit, OnDestroy {
   public x!: number;
   public y!: number;
   public mapReady: boolean = false;
-
+  private greenIcon;
+  
   constructor() { 
+  const iconRetinaUrl = 'assets/marker-icon-2x.png';
+  const iconUrl = 'assets/marker-icon.png';
+  const shadowUrl = 'assets/marker-shadow.png';
+  const iconDefault = icon({
+    iconRetinaUrl,
+    iconUrl,
+    shadowUrl,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    tooltipAnchor: [16, -28],
+    shadowSize: [41, 41]
+    });
+  Marker.prototype.options.icon = iconDefault; 
+  this.greenIcon = L.icon({
+    iconUrl: 'assets/marker-icon_start.png',
+    shadowUrl: 'assets/marker-shadow.png',
+
+    iconSize:     [25, 41], // size of the icon
+    shadowSize:   [41, 41], // size of the shadow
+    iconAnchor:   [12, 41], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
   }
 
   ngOnInit() {
     
   }
   ngOnChanges(changes: SimpleChanges) {
-    if (changes['x_coordinate'] && this.mapReady) {
+    if (this.mapReady) {
       
-      this.x = changes['x_coordinate'].currentValue
-      this.y = changes['y_coordinate'].currentValue
-      L.marker([this.y, this.x]).addTo(this.map);
-      console.log("x " + this.x + " y " + this.y) 
+      this.departureX = changes['departureX'].currentValue
+      this.departureY = changes['departureY'].currentValue
+      this.returnX = changes['returnX'].currentValue
+      this.returnY = changes['returnY'].currentValue
+      L.marker([this.departureY, this.departureX]).addTo(this.map);
+      L.marker([this.returnY, this.returnX],{icon: this.greenIcon}).addTo(this.map);
+      
     }
     
     

@@ -16,8 +16,10 @@ import * as L from 'leaflet';
     <app-map 
     (map$)="receiveMap($event)"
     (zoom$)="receiveZoom($event)"
-    [x_coordinate]="journeyDetails.departure_station_coordinate_x"
-    [y_coordinate]="journeyDetails.departure_station_coordinate_y"
+    [departureX]="journeyDetails.departure_station_coordinate_x"
+    [departureY]="journeyDetails.departure_station_coordinate_y"
+    [returnX]="journeyDetails.return_station_coordinate_x"
+    [returnY]="journeyDetails.return_station_coordinate_y"
     id='main-map'></app-map>
   </div>
 
