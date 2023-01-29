@@ -13,8 +13,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table'; 
 import { MatSortModule } from '@angular/material/sort';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MapComponent } from './map/map.component';
+import { MapComponent } from './maps/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { StationMapComponent } from './maps/station-map.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     StationsComponent,
     StationDetailsComponent,
     JourneyDetailsComponent,
-    MapComponent
+    MapComponent,
+    StationMapComponent
   ],
   imports: [
     BrowserModule,
