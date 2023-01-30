@@ -11,10 +11,10 @@ import { StationMapComponent } from '../maps/station-map.component';
   styleUrls: ['./stations.component.css'],
   template: `<h2>Stations</h2>
       <app-station-map 
-    (map$)="receiveMap($event)"
-    (zoom$)="receiveZoom($event)"
-    [coordinates]="stations"
-    id='main-map'></app-station-map>`
+      (map$)="receiveMap($event)"
+      (zoom$)="receiveZoom($event)"
+      [coordinates]="stations"
+      id='main-map'></app-station-map>`
 })
 export class StationsComponent implements OnInit, AfterViewInit{
 
@@ -22,23 +22,20 @@ export class StationsComponent implements OnInit, AfterViewInit{
   stations!: Station[];
   @ViewChild(StationMapComponent) 
   private stationMap!: StationMapComponent;
+  private map!: Map;
+  private zoom!: number;
+  
 
   ngOnInit(): void {
       this.getStations();
-      
   }
-  ngAfterViewInit(): void {
-    
-  }
+  ngAfterViewInit(): void { }
   private getStations() {
     this.ds.getStations().subscribe((stations =>{
       this.stations = stations;
      }))
   
   }
-  private map!: Map;
-  private zoom!: number;
-  
   receiveMap(map: Map) {
     this.map = map;
     

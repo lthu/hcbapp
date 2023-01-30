@@ -16,12 +16,11 @@ export class DataService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-
   getJourneys(): Observable<Journey[]> {
     return this.http.get<Journey[]>(this.apiURL + 'journeys/')
   }
   getJourneyById(id: number): Observable<JourneyDetails[]> {
-    return this.http.get<JourneyDetails[]>(this.apiURL + '/journeys/' + id)
+    return this.http.get<JourneyDetails[]>(this.apiURL + 'journeys/' + id)
   }
   getStations(): Observable<Station[]> {
     return this.http.get<Station[]>(this.apiURL + 'stations/')
