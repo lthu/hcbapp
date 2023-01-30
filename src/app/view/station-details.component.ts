@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-station-details',
-  templateUrl: './station-details.component.html',
+  template: `<p>{{stationIdNumber}}</p>`,
   styleUrls: ['./station-details.component.css']
 })
 export class StationDetailsComponent {
-
+  @Input() stationIdNumber!: number;
 }

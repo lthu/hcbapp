@@ -33,7 +33,6 @@ export class StationsComponent implements OnInit, AfterViewInit{
   private getStations() {
     this.ds.getStations().subscribe((stations =>{
       this.stations = stations;
-      
      }))
   
   }
