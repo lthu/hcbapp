@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Journey, JourneyDetails } from './model/journey';
-import { Station, StationDetails } from './model/station';
+import { Station, StationDetails, StationDetailsTop5 } from './model/station';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -27,6 +27,12 @@ export class DataService {
   }
   getStationById(id: number): Observable<StationDetails[]> {
     return this.http.get<StationDetails[]>(this.apiURL + 'stations/' + id)
+  }
+  getTop5ReturnStations(id: number): Observable<StationDetailsTop5[]> {
+    return this.http.get<StationDetailsTop5[]>(this.apiURL + 'stations/top5ReturnStations/' + id)
+  }
+  getTop5DepartureStations(id: number): Observable<StationDetailsTop5[]> {
+    return this.http.get<StationDetailsTop5[]>(this.apiURL + 'stations/top5DepartureStations/' + id)
   }
  
 }

@@ -24,3 +24,8 @@ export interface StationDetails {
     coordinate_x: number,
     coordinate_y: number
 }
+export interface StationDetailsTop5 {
+    station_id: number,
+    name: string,
+    count: number,
+}

@@ -2,3 +2,11 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@keyframes fade { 
+    from { opacity: 0.5; }
+  }
+  
+.blinking {
+    animation: fade 1s infinite alternate;
+}

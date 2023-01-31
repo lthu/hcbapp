@@ -1,0 +1,7 @@
+div.search {
+    background-color: lightblue;
+    width: 250px;
+    height: 250px;
+    overflow: auto;
+    margin-left: 5px;
+}

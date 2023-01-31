@@ -16,6 +16,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MapComponent } from './maps/map.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { StationMapComponent } from './maps/station-map.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule  } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { StationMapComponent } from './maps/station-map.component';
     MatSortModule,
     MatDialogModule,
     LeafletModule,
+    FlexLayoutModule,
+    ReactiveFormsModule ,
     
   ],
   providers: [],
