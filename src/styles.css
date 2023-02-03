@@ -3,10 +3,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-@keyframes fade { 
-    from { opacity: 0.5; }
-  }
-  
-.blinking {
-    animation: fade 1s infinite alternate;
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+opacity: 0.9;
+box-shadow: 0 10px 14px rgba(0, 0, 0, 0.4) !important;
 }

@@ -8,12 +8,12 @@
     
   }
   
-  .map-frame {
+.map-frame {
     border: 2px solid black;
     height: 100%;
   }
   
-  #map {
-    height: 50%;
+#map {
+    height: 100%;
   }
   

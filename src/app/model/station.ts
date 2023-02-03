@@ -17,6 +17,7 @@ export interface StationDetails {
     departed_journeys_total: number,
     avg_return_distance: number,
     avg_departure_distance: number,
+    avg_duration: number,
     address: string,
     city: string,
     operator: string,
